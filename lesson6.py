@@ -87,30 +87,35 @@ def draw_window(red,yellow,red_bullets,yellow_bullets,red_health, yellow_health)
 
     pygame.draw.rect(WIN, BLACK, BORDER)
 
+    red_health_text = HEALTH_FONT.render(
+    
+        "Health: "+str(red_health), True, WHITE
+    
+    )
 
     yellow_health_text = HEALTH_FONT.render(
 
     "Health: "+str(yellow_health), True, WHITE
 
-)
+    )
 
-WIN.blit(red_health_text, (WIDTH-red_health_text.get_width()-10, 10))
+    WIN.blit(red_health_text, (WIDTH-red_health_text.get_width()-10, 10))
 
-WIN.blit(yellow_health_text, (10, 10))
+    WIN.blit(yellow_health_text, (10, 10))
 
-WIN.blit(YELLOW_SPACESHIP, (yellow.x, yellow.y))
+    WIN.blit(YELLOW_SPACESHIP, (yellow.x, yellow.y))
 
-WIN.blit(RED_SPACESHIP, (red.x, red.y))
+    WIN.blit(RED_SPACESHIP, (red.x, red.y))
 
-for bullet in red_bullets:
+    for bullet in red_bullets:
 
-    pygame.draw.rect(WIN, RED, bullet)
+        pygame.draw.rect(WIN, RED, bullet)
 
-for bullet in yellow_bullets:
+    for bullet in yellow_bullets:
 
-    pygame.draw.rect(WIN, YELLOW, bullet)
+        pygame.draw.rect(WIN, YELLOW, bullet)
 
-pygame.display.update()
+    pygame.display.update()
 def yellow_handle_movement(keys_pressed, yellow):
 
     if keys_pressed[pygame.K_a] and yellow.x > 0:
@@ -262,7 +267,7 @@ def main():
 
                 yellow_health -= 1
 
-                        winner_text = ""
+        winner_text = ""
 
         if red_health <= 0:
 
